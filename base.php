@@ -16,7 +16,18 @@ use Roots\Sage\Wrapper;
       do_action('get_header');
       get_template_part('templates/header');
     ?>
-    <div class="wrap container" role="document">
+
+     <?php  //out put full width container on home page
+         $url =  Wrapper\template_path();
+
+
+         if (basename($url) === 'home.php') {
+             $container = 'container-fluid';
+         } else {
+                $container = 'container';
+            }
+    ?>
+    <div class="wrap <?php echo $container ?>" role="document">
       <div class="content row">
         <main class="main" role="main">
           <?php include Wrapper\template_path(); ?>
